@@ -22,7 +22,7 @@ function Notify() {
             alert("Час минув!");
     }
 }
-
+console.log ("нр");
 function Start(interval, repeat = true) {
     text = document.getElementById("text-timer").value;
     remaining = interval;
@@ -77,7 +77,12 @@ if ("Notification" in window && Notification.permission !== "granted") {
 
 const params = new URLSearchParams(window.location.search);
 const interval = params.get("interval");
+const textParam = params.get("text");
+console.log(textParam);
 if (interval) {
     document.getElementById("interval").value = interval;
+    if (textParam) {
+        document.getElementById("text-timer").value = textParam;
+    }
     Start(parseInt(interval, 10));
 }
